@@ -1,0 +1,15 @@
+build/
+
+
+CMakeLists.txt  
+
+
+main/*.txt
+
+
+old_versions
+
+
+sdkconfig
+
+main/*.swp
