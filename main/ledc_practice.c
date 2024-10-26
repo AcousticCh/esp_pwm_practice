@@ -29,12 +29,22 @@ ledc_channel_config_t my_channel_config = {
 		.channel = CHANNEL,
 		.intr_type = LEDC_INTR_DISABLE,
 		.timer_sel = TIMER_NUM,
-		.duty = DUTY_CYCLE,
+		.duty = 0,
 		.hpoint = 0
 };
+
+#define FADE_TIME_MS 5000
 
 void app_main(void)
 {
 	ledc_timer_config(&my_timer_config);
 	ledc_channel_config(&my_channel_config);
+
+	ledc_fade_func_install(0);
+
+	ledc_set_fade_with_time(SPEED_MODE, CHANNEL, DUTY_CYCLE, FADE_TIME_MS);
+	while(1)
+	{
+		ledc_fade_start(SPEED_MODE, CHANNEL, LEDC_FADE_WAIT_DONE);
+	};
 }
