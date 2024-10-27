@@ -10,6 +10,15 @@
 #define FREQ_HZ (4000)
 #define CLOCK_CFG LEDC_AUTO_CLK
 
+//channel config variables
+#define CHANNEL LEDC_CHANNEL_0
+#define DUTY_CYCLE (4096)
+
+//amount of time to complete fade
+#define FADE_TIME_MS 5000
+
+
+
 ledc_timer_config_t my_timer_config = {
 		.speed_mode = SPEED_MODE,
 		.timer_num = TIMER_NUM,
@@ -19,9 +28,6 @@ ledc_timer_config_t my_timer_config = {
 
 };
 
-//channel config variables
-#define CHANNEL LEDC_CHANNEL_0
-#define DUTY_CYCLE (4096)
 
 ledc_channel_config_t my_channel_config = {
 		.gpio_num = 27,
@@ -33,7 +39,7 @@ ledc_channel_config_t my_channel_config = {
 		.hpoint = 0
 };
 
-#define FADE_TIME_MS 5000
+
 
 void app_main(void)
 {
